@@ -1,0 +1,32 @@
+.showborder{
+    border: 2px solid orange;
+}
+.parent {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.left-container{
+  display: grid;
+  grid-template-rows: 20% 80%;
+  grid-template-columns: 1fr;
+}
+
+.right-container{
+  display:grid;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+  grid-template-columns: 1fr;
+}
+
+.upgrade-container{
+  display: grid;
+  grid-template-columns: 2;
+  grid-template-rows: 1fr;
+}
+
+.upgrade-container img{
+  max-width: 20%;
+}
