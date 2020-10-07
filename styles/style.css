@@ -19,6 +19,7 @@
 .left-container img{
   justify-content: center;
   align-content: center;
+  width: 300px;
 }
 
 .right-container{
