@@ -1,13 +1,18 @@
 var points = 0;
+var upgrade = 1;
 
 function initiateSite(){
     points = Number(getCookie("score"));
     document.getElementById("pointAmount").innerHTML = points + " Cookies";
 }
 
+function updateScore(){
+    document.getElementById("pointAmount").innerHTML = points + " Cookies";
+}
+
 function manualClick(clickValue){
     points = points + clickValue;
-    document.getElementById("pointAmount").innerHTML = points + " Cookies";
+    updateScore();
     setCookie("score", points, 100);
 }
 
@@ -32,4 +37,20 @@ function getCookie(cname) {
       }
     }
     return "";
-  }
+}
+
+function calculateClicks(){
+    uclick = upgrade * 1;
+    return uclick;
+}
+
+function autoClick(){
+    amount = calculateClicks();
+    points = points + amount;
+    updateScore();
+}
+
+window.setInterval(function(){
+    autoClick();
+}, 1000);
+
