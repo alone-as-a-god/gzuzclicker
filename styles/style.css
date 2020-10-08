@@ -3,7 +3,7 @@ body{
 }
 .rotate {
   animation: rotation 120s infinite linear;
-  margin-left: 150px;
+  margin-left: 330px;
 }
 .showborder{
     border: 2px solid orange;
@@ -22,7 +22,14 @@ body{
   grid-template-columns: 1fr;
   justify-content: center;
   align-content: center;
+  text-align: center;
 }
+
+.left-container p{
+  font-size: xx-large;
+  font-family: 'Balsamiq Sans', cursive;
+}
+
 .left-container img{
   justify-content: center;
   align-content: center;
