@@ -16,6 +16,10 @@ var clickUpgrade = {
     priceId:"clickUpgrade-price"
 };
 
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function initiateSite(){
     points = parseFloat(getCookie("score"));
     if(isNaN(points)){
@@ -55,7 +59,7 @@ function displayPrice(chosenUpgrade, newPrice){
 
 function updateScore(){
     points = Math.round(points * 10) / 10
-    document.getElementById("pointAmount").innerHTML = points + " Hiebe";
+    document.getElementById("pointAmount").innerHTML = numberWithCommas(points) + " Hiebe";
 }
 
 function manualClick(){
