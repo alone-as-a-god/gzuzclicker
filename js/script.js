@@ -2,9 +2,17 @@ var points = 0;
 
 var upgrade = {
     price:10,
+    exponent:1.3,
     amount:0,
     id:"upgrade1display"
-    };
+};
+
+var clickUpgrade = {
+    price: 100,
+    exponent: 2.4,
+    amount: 0,
+    id:"upgradeClickDisplay"
+};
 
 function initiateSite(){
     points = Number(getCookie("score"));
@@ -15,10 +23,11 @@ function initiateSite(){
 
 function updateScore(){
     points = Math.round(points * 10) / 10
-    document.getElementById("pointAmount").innerHTML = points + " Cookies";
+    document.getElementById("pointAmount").innerHTML = points + " Hiebe";
 }
 
-function manualClick(clickValue){
+function manualClick(){
+    clickValue = 2**Number(clickUpgrade.amount);
     points = points + clickValue;
     updateScore();
     setCookie("score", points, 100);
@@ -67,7 +76,7 @@ function purchaseUpgrade(chosenUpgrade){            //Purchase the given upgrade
     if(chosenUpgrade.amount == 0){                  //First purchase is always the base price of the ugprade
         newPrice = Number(chosenUpgrade.price);
     }else{
-        newPrice = Number(Number(chosenUpgrade.price) * 1.3 **  (Number(chosenUpgrade.amount)));
+        newPrice = Number(Number(chosenUpgrade.price) * Number(chosenUpgrade.exponent) **  (Number(chosenUpgrade.amount)));
     }
 
     newPrice = Math.round(newPrice * 10) / 10
