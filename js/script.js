@@ -99,10 +99,6 @@ function autoClick(){
     updateScore();
 }
 
-window.setInterval(function(){
-    autoClick();
-}, 1000);
-
 
 function purchaseUpgrade(chosenUpgrade){            //Purchase the given upgrade
 
@@ -117,6 +113,10 @@ function purchaseUpgrade(chosenUpgrade){            //Purchase the given upgrade
 }
 
 
+
+window.setInterval(function(){
+    autoClick();
+}, 1000);
 
 
 window.setInterval(function(){
