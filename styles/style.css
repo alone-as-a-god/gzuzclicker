@@ -1,3 +1,7 @@
+body{
+  margin: 30px;
+}
+
 .showborder{
     border: 2px solid orange;
 }
@@ -25,12 +29,12 @@
 .right-container{
   display:grid;
   grid-template-rows: 20% 20% 20% 20% 20%;
-  grid-template-columns: 1fr;
+  grid-template-columns: 300px;
 }
 
 .upgrade-container{
   display: grid;
-  grid-template-columns: 2;
+  grid-template-columns: 40% 60%;
   grid-template-rows: 1fr;
   grid-template-areas: 
     "image text";
@@ -38,9 +42,21 @@
 
 .upgrade-container img{
   grid-area: image;
-  max-width: 20%;
+  max-width: 100%;
 }
 
 .upgrade-container p{
   grid-area: text;
+}
+
+.upgrade-flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+.top-left {
+  flex: 50%; 
+}
+
+.bottom-left {
+  flex: 50%;
 }

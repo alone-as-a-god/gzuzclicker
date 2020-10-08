@@ -14,20 +14,22 @@
             <img onclick="manualClick()" src="../styles/images/gzuz.png"/>
         </div>
         <div class="right-container">
+            <div onclick="purchaseUpgrade(clickUpgrade)" class="upgrade-container">
+                <img src="../styles/images/schwan.png">
+                <div class="upgrade-flex">
+                    <p class="top-left">Click Upgrade</p>
+                    <p id="clickUpgrade-price"> 1000 </p>
+                    <p class="bottom-left" id="upgradeClickDisplay">0</p>
+                </div>
+            </div>
             <div onclick="purchaseUpgrade(upgrade)" class="upgrade-container">
                 <img src="../styles/images/placeholder.png">
-                <div>
-                    <p>Autoclicker</p>
-                    <p id="upgrade1display">0</p>
+                <div class="upgrade-flex">
+                    <p class="top-left">Autoclicker</p>
+                    <p id="upgrade-price"> 25 </p>
+                    <p class="bottom-left" id="upgrade1display">0</p>
                 </div>
                 
-            </div>
-            <div onclick="purchaseUpgrade(clickUpgrade)" class="upgrade-container">
-                <img src="../styles/images/placeholder.png">
-                <div>
-                    <p>Click Upgrade</p>
-                    <p id="upgradeClickDisplay">0</p>
-                </div>
             </div>
             <div class="upgrade-container">
                 <img src="../styles/images/placeholder.png">
