@@ -10,7 +10,7 @@ var upgrade = {
 
 var clickUpgrade = {
     price: 500,
-    exponent: 2.1,
+    exponent: 1.95,
     amount: 0,
     id:"upgradeClickDisplay",
     priceId:"clickUpgrade-price"
