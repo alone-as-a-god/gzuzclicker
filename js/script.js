@@ -1,12 +1,20 @@
 var points = 0;
-var upgrade = 1;
+
+var upgrade = {
+    price:10,
+    amount:0,
+    id:"upgrade1display"
+    };
 
 function initiateSite(){
     points = Number(getCookie("score"));
-    document.getElementById("pointAmount").innerHTML = points + " Cookies";
+    upgrade.amount = Number(getCookie("upgrade"));
+    document.getElementById(upgrade.id).innerHTML = upgrade.amount;
+    updateScore();
 }
 
 function updateScore(){
+    points = Math.round(points * 10) / 10
     document.getElementById("pointAmount").innerHTML = points + " Cookies";
 }
 
@@ -40,7 +48,7 @@ function getCookie(cname) {
 }
 
 function calculateClicks(){
-    uclick = upgrade * 1;
+    uclick = upgrade.amount;
     return uclick;
 }
 
@@ -54,3 +62,28 @@ window.setInterval(function(){
     autoClick();
 }, 1000);
 
+
+function purchaseUpgrade(chosenUpgrade){            //Purchase the given upgrade
+    if(chosenUpgrade.amount == 0){                  //First purchase is always the base price of the ugprade
+        newPrice = Number(chosenUpgrade.price);
+    }else{
+        newPrice = Number(Number(chosenUpgrade.price) * 1.3 **  (Number(chosenUpgrade.amount)));
+    }
+
+    newPrice = Math.round(newPrice * 10) / 10
+
+    if(points >= newPrice){
+        points = points - newPrice;
+        updateScore();
+        chosenUpgrade.amount = chosenUpgrade.amount + 1;
+    }
+    document.getElementById(chosenUpgrade.id).innerHTML = chosenUpgrade.amount;
+}
+
+
+
+
+window.setInterval(function(){
+    setCookie("score", points, 100);
+    setCookie("upgrade", upgrade.amount, 100);
+}, 3000);
