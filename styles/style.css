@@ -23,7 +23,7 @@ body{
 .left-container img{
   justify-content: center;
   align-content: center;
-  width: 300px;
+  width: 200px;
 }
 
 .right-container{
@@ -59,4 +59,17 @@ body{
 
 .bottom-left {
   flex: 50%;
+}
+
+
+/* ---------------------------*/
+#myProgress {
+  width: 100%;
+  background-color: grey;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: green;
 }

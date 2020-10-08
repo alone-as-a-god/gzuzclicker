@@ -9,8 +9,8 @@ var upgrade = {
 };
 
 var clickUpgrade = {
-    price: 1000,
-    exponent: 2.4,
+    price: 500,
+    exponent: 2.1,
     amount: 0,
     id:"upgradeClickDisplay",
     priceId:"clickUpgrade-price"
@@ -23,6 +23,8 @@ function initiateSite(){
     upgrade.amount = Number(getCookie("clickUpgrade"));
     document.getElementById(clickUpgrade.id).innerHTML = upgrade.amount;
     updateScore();
+    displayPrice(clickUpgrade, calculatePrice(clickUpgrade));
+    displayPrice(upgrade, calculatePrice(upgrade));
 }
 
 function calculatePrice(chosenUpgrade){
@@ -102,8 +104,7 @@ function purchaseUpgrade(chosenUpgrade){            //Purchase the given upgrade
         chosenUpgrade.amount = chosenUpgrade.amount + 1;
     }
     document.getElementById(chosenUpgrade.id).innerHTML = chosenUpgrade.amount;
-    newPrice = calculatePrice(chosenUpgrade);
-    displayPrice(chosenUpgrade, newPrice);
+    displayPrice(chosenUpgrade, calculatePrice(chosenUpgrade));
 }
 
 
