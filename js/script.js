@@ -17,11 +17,20 @@ var clickUpgrade = {
 };
 
 function initiateSite(){
-    points = Number(getCookie("score"));
-    upgrade.amount = Number(getCookie("upgrade"));
+    points = parseFloat(getCookie("score"));
+    if(isNaN(points)){
+        points = 0;
+    }
+    upgrade.amount = parseFloat(getCookie("upgrade"));
+    if(isNaN(upgrade.amount)){
+        upgrade.amount = 0;
+    }
     document.getElementById(upgrade.id).innerHTML = upgrade.amount;
-    upgrade.amount = Number(getCookie("clickUpgrade"));
-    document.getElementById(clickUpgrade.id).innerHTML = upgrade.amount;
+    clickUpgrade.amount = parseFloat(getCookie("clickUpgrade"));
+    if(isNaN(clickUpgrade.amount)){
+        clickUpgrade.amount = 0;
+    }
+    document.getElementById(clickUpgrade.id).innerHTML = clickUpgrade.amount;
     updateScore();
     displayPrice(clickUpgrade, calculatePrice(clickUpgrade));
     displayPrice(upgrade, calculatePrice(upgrade));
@@ -111,19 +120,12 @@ function purchaseUpgrade(chosenUpgrade){            //Purchase the given upgrade
 
 
 window.setInterval(function(){
-    setCookie("score", points, 100);
-    setCookie("upgrade", upgrade.amount, 100);
-    setCookie("clickUpgrade", clickUpgrade.amount, 100);
+    
+    setCookie("score", parseFloat(points), 100);
+    setCookie("upgrade", parseFloat(upgrade.amount), 100);
+    setCookie("clickUpgrade", parseFloat(clickUpgrade.amount), 100);
+    
+    
 }, 3000);
 
 
-function deleteAllCookies() {
-    var cookies = document.cookie.split(";");
-
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i];
-        var eqPos = cookie.indexOf("=");
-        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    }
-}
