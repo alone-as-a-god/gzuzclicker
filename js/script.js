@@ -74,7 +74,7 @@ function calculatePrice(chosenUpgrade){
 
 function displayPrice(chosenUpgrade, newPrice){
     //window.alert("New Price is: "+newPrice +  " of " + chosenUpgrade.id);
-    document.getElementById(chosenUpgrade.priceId).innerHTML = newPrice;
+    document.getElementById(chosenUpgrade.priceId).innerHTML = numberWithCommas(newPrice);
 }
 
 function updateScore(){
@@ -82,44 +82,21 @@ function updateScore(){
     document.getElementById("pointAmount").innerHTML = numberWithCommas(points) + " Hiebe";
 }
 
-function manualClick(){
-    clickValue = 2**Number(clickUpgrade.amount);
+function manualClick(){                         //Just used when clicked on Gzuz face manually
+    clickValue = getManualClick();
     points = points + clickValue;
     updateScore();
     setCookie("score", points, 100);
 }
 
 
-function getManualClick(){
+function getManualClick(){                          //To calculate the value of a manual click
     if(clickUpgrade.amount != 0){
         clickValue = 2**Number(clickUpgrade.amount);
         return clickValue;
     }else{
         return 1;
     }
-}
-
-function setCookie(cname, cvalue, exdays){
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires"+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
 }
 
 function calculateClicks(){
@@ -133,6 +110,7 @@ function autoClick(){
     updateScore();
 }
 
+
 function playSound(){
     new Audio("styles/audio/schwan.mp3").play();
 }
@@ -144,6 +122,9 @@ function purchaseUpgrade(chosenUpgrade){            //Purchase the given upgrade
         points = points - newPrice;
         updateScore();
         chosenUpgrade.amount = chosenUpgrade.amount + 1;
+        if(chosenUpgrade.id == "upgradeClickDisplay"){
+            playSound();
+        }
     }
     document.getElementById(chosenUpgrade.id).innerHTML = chosenUpgrade.amount;
     displayPrice(chosenUpgrade, calculatePrice(chosenUpgrade));
@@ -206,6 +187,32 @@ window.setInterval(function(){
     
     
 }, 3000);
+
+function setCookie(cname, cvalue, exdays){
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires"+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+}
+
+
+/*  "287", wer sich de zohl net merkt, hot offensichtlich net augepasst, in sem foll mussi leido folgende funktion vowendn:     */
 
 function deleteAllCookies() {
     var cookies = document.cookie.split(";");
