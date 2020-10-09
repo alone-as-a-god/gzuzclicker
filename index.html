@@ -14,12 +14,12 @@
         <div class="left-container">
             <p id="pointAmount">0 Cookies</p>
             <img class="rotate" onclick="manualClick()" src="../styles/images/gzuz.png"/>
-            <div id="myProgress">
+            <!-- <div id="myProgress">
                 <div id="myBar"></div>
-            </div>
+            </div> -->
         </div>
         <div class="right-container">
-            <div onclick="purchaseUpgrade(clickUpgrade)" class="upgrade-container">
+            <div onclick="purchaseUpgrade(clickUpgrade);playSound();" class="upgrade-container">
                 <img src="../styles/images/schwan.png">
                 <div class="upgrade-flex">
                     <p class="top-left">Click Upgrade</p>
@@ -28,30 +28,30 @@
                 </div>
             </div>
             <div onclick="purchaseUpgrade(upgrade)" class="upgrade-container">
-                <img src="../styles/images/cursor.png">
+                <img src="../styles/images/schlag.jpg">
                 <div class="upgrade-flex">
-                    <p class="top-left">Autoclicker</p>
+                    <p class="top-left">Autohiebe</p>
                     <p id="upgrade-price"> 25 </p>
-                    <p class="bottom-left" id="upgrade1display">0</p>
+                    <p class="bottom-left" id="upgrade1Display">0</p>
                 </div>
                 
             </div>
-            <div onclick="purchaseUpgrade(upgrade2)" class="upgrade-container">
+            <div onclick="purchaseUpgrade(cl500)" class="upgrade-container">
                 <img src="../styles/images/cl500.jpg">
                 <div class="upgrade-flex">
-                    <p class="top-left">CL500 Not functional</p>
-                    <p id="upgrade2-price"> 300 </p>
-                    <p class="bottom-left" id="upgrade2display">0</p>
+                    <p class="top-left">CL500</p>
+                    <p id="cl500-price"> 300 </p>
+                    <p class="bottom-left" id="cl500Display">0</p>
                 </div>
                 
             </div>
-            <div class="upgrade-container">
+            <div onclick="calculateAutoClicks()"  class="upgrade-container">
                 <img src="../styles/images/placeholder.png">
                 <p>upgrade nr 4</p>
             </div>
             <div class="upgrade-container">
                 <img src="../styles/images/placeholder.png">
-                <p>upgrade nr 5</p>
+                <p id="debug">upgrade nr 5</p>
             </div>
         </div>
     </div>
