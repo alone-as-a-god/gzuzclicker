@@ -321,5 +321,5 @@ $(document).ready(function(){
         $("#x"+x).css("user-select"," none");
         $("#x"+x).css("pointer-events"," none");
         $("#x"+x).show();
-    });
+    })
 });
