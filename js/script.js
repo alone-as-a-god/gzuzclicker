@@ -18,6 +18,7 @@ var progressBar = 0;
 var autoClickBonus = 0;
 var i = 0;
 var c = 0;
+var includesNr = false;
 
 /*----------TO DO:
                 - change this to constructor 
@@ -169,7 +170,10 @@ function displayPrice(chosenUpgrade, newPrice){
 
 function updateScore(){
     points = Math.round(points * 10) / 10
+   
     document.getElementById("pointAmount").innerHTML = numberWithCommas(points) + " Hiebe";
+    
+    check187();
 }
 
 
@@ -179,7 +183,10 @@ function updateScore(){
 function manualClick(){                         //Just used when clicked on Gzuz face manually
     clickValue = getManualClick();
     points = points + clickValue;
+   
     updateScore();
+    
+    
     setCookie("score", points, 100);
 }
 
@@ -198,7 +205,10 @@ function getManualClick(){                          //To calculate the value of 
 function autoClick(){
     amount = calculateClicks();
     points = points + amount;
+    
     updateScore();
+    
+    
 }
 
 /*================== Random dumb shit =====================*/
@@ -216,7 +226,26 @@ function updateProgressBar(){
     }
 }
 
+function check187(){
 
+    tempPoints = parseInt(points);
+    textToCheck = tempPoints.toString();
+    if(tempPoints == 187 && (includesNr == false)){
+        window.alert("omgggg");
+        includesNr = true;
+    }else{
+        includesNr = false;
+    }
+    
+
+}
+
+function debugFunction(){
+    points = 170;
+    upgrade.amount = 0;
+    cl500.amount = 0;
+    clickUpgrade.amount = 0;
+}
 
 /*=================== Automatically executed code===================*/
 
