@@ -282,10 +282,27 @@ function deleteAllCookies() {
     }
 }
 
+
+/*
+            ______                                          
+           /      \                                         
+       __ |  $$$$$$\ __    __   ______    ______   __    __ 
+      |  \| $$  | $$|  \  |  \ /      \  /      \ |  \  |  \
+       \$$| $$  | $$| $$  | $$|  $$$$$$\|  $$$$$$\| $$  | $$
+      |  \| $$ _| $$| $$  | $$| $$    $$| $$   \$$| $$  | $$
+      | $$| $$/ \ $$| $$__/ $$| $$$$$$$$| $$      | $$__/ $$
+      | $$ \$$ $$ $$ \$$    $$ \$$     \| $$       \$$    $$
+ __   | $$  \$$$$$$\  \$$$$$$   \$$$$$$$ \$$       _\$$$$$$$
+|  \__/ $$      \$$$                              |  \__| $$
+ \$$    $$                                         \$$    $$
+  \$$$$$$                                           \$$$$$$ 
+  */
+
+
 var x = 0;
 $(document).ready(function(){
 
-    $("#cookie").click(function(e) {
+    $("#cookie").click(function(e) {                                            //Function to add the floating "+1" upon clicking
         x++;
         $("#cookie").append('<div id="x'+x+'" hidden>+'+ getManualClick()+'</div>');
         $("#x"+x).css("top", e.clientY);
