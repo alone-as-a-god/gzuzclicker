@@ -26,7 +26,7 @@ var c = 0;
 
 var upgrade = {
     price: 10,
-    exponent:1.1,
+    exponent:1.25,
     amount:0,
     id:"upgrade1Display",
     priceId:"upgrade-price"
@@ -41,7 +41,7 @@ var clickUpgrade = {
 };
 
 var cl500 = {
-    price: 500,
+    price: 300,
     exponent: 1.1,
     amount: 0,
     id:"cl500Display",
@@ -281,3 +281,45 @@ function deleteAllCookies() {
         document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
     }
 }
+
+
+/*
+            ______                                          
+           /      \                                         
+       __ |  $$$$$$\ __    __   ______    ______   __    __ 
+      |  \| $$  | $$|  \  |  \ /      \  /      \ |  \  |  \
+       \$$| $$  | $$| $$  | $$|  $$$$$$\|  $$$$$$\| $$  | $$
+      |  \| $$ _| $$| $$  | $$| $$    $$| $$   \$$| $$  | $$
+      | $$| $$/ \ $$| $$__/ $$| $$$$$$$$| $$      | $$__/ $$
+      | $$ \$$ $$ $$ \$$    $$ \$$     \| $$       \$$    $$
+ __   | $$  \$$$$$$\  \$$$$$$   \$$$$$$$ \$$       _\$$$$$$$
+|  \__/ $$      \$$$                              |  \__| $$
+ \$$    $$                                         \$$    $$
+  \$$$$$$                                           \$$$$$$ 
+  */
+
+
+var x = 0;
+$(document).ready(function(){
+
+    $("#cookie").click(function(e) {                                            //Function to add the floating "+1" upon clicking
+        x++;
+        $("#cookie").append('<div id="x'+x+'" hidden>+'+ getManualClick()+'</div>');
+        $("#x"+x).css("top", e.clientY);
+        $("#x"+x).css("left", e.clientX - 10);
+        $("#x"+x).css("position", "absolute");
+        $("#x"+x).css("width", "25px");
+        $("#x"+x).css("height", "25px");
+        $("#x"+x).css("color", "white");
+        $("#x"+x).css("font-weight", "bold");
+        $("#x"+x).css("animation", "GoUp 2s forwards linear");
+        $("#x"+x).css("-webkit-touch-callout", "none");
+        $("#x"+x).css("-webkit-user-select"," none");
+        $("#x"+x).css("-khtml-user-select","none");
+        $("#x"+x).css("-moz-user-select"," none");
+        $("#x"+x).css("-ms-user-select"," none");
+        $("#x"+x).css("user-select"," none");
+        $("#x"+x).css("pointer-events"," none");
+        $("#x"+x).show();
+    });
+});
