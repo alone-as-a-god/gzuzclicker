@@ -52,7 +52,7 @@ body{
 
 .upgrade-container img{
   grid-area: image;
-  max-height: 100%;
+  max-height: 20%;
   height: 100%;
 }
 
