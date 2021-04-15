@@ -44,7 +44,7 @@ body{
 
 .upgrade-container{
   display: grid;
-  grid-template-columns: 100px 400px;
+  grid-template-columns: 100px 200px;
   grid-template-rows: 1fr;
   grid-template-areas: 
     "image text";
