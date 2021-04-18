@@ -85,9 +85,9 @@ function initiateSite(){
     if(isNaN(clickUpgrade.amount)){
         clickUpgrade.amount = 0;
     }
-    document.getElementById(clickUpgrade.id).innerHTML = clickUpgrade.amount;
-    document.getElementById(upgrade.id).innerHTML = upgrade.amount;
-    document.getElementById(cl500.id).innerHTML = cl500.amount;
+    document.getElementById(clickUpgrade.id).innerHTML = clickUpgrade.amount + " owned";
+    document.getElementById(upgrade.id).innerHTML = upgrade.amount + " owned";
+    document.getElementById(cl500.id).innerHTML = cl500.amount + " owned";
     updateScore();
     displayPrice(clickUpgrade, calculatePrice(clickUpgrade));
     displayPrice(upgrade, calculatePrice(upgrade));
@@ -164,7 +164,7 @@ function purchaseUpgrade(chosenUpgrade){            //Purchase the given upgrade
 
 function displayPrice(chosenUpgrade, newPrice){
     //window.alert("New Price is: "+newPrice +  " of " + chosenUpgrade.id);
-    document.getElementById(chosenUpgrade.priceId).innerHTML = numberWithCommas(newPrice);
+    document.getElementById(chosenUpgrade.priceId).innerHTML = numberWithCommas(newPrice) +"$";
 }
 
 function updateScore(){
@@ -268,19 +268,6 @@ function getCookie(cname) {
     return "";
 }
 
-
-/*  "287", wer sich de zohl net merkt, hot offensichtlich net augepasst, in sem foll mussi leido folgende funktion vowendn:     */
-
-function deleteAllCookies() {
-    var cookies = document.cookie.split(";");
-
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i];
-        var eqPos = cookie.indexOf("=");
-        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    }
-}
 
 
 /*
